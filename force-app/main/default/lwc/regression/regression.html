@@ -1,0 +1,95 @@
+<template>
+
+    <div class="margin-bottom-2rem">
+        <lightning-card title="All Categories list" icon-name="custom:custom14">
+            <div class="slds-var-m-around_medium">
+                <lightning-accordion allow-multiple-sections-open>
+                    <!--Category level-->
+                    <template for:each={CATEGORY} for:item="category">
+
+                        <lightning-accordion-section name={category.categoryName} key={category.categoryName} label={category.categoryName}>
+                            <template if:true={category.accessProfiles}>
+                                <lightning-accordion allow-multiple-sections-open>
+                                    <template for:each={category.accessProfiles} for:item="profile">
+                                        <lightning-accordion-section name={profile.section} key={profile.name} label={profile.name}>
+                                            <template if:true={profile.objects}>
+                                                <lightning-accordion allow-multiple-sections-open>
+                                                    <!--Profile level-->
+                                                    <template for:each={profile.objects} for:item="object">
+                                                
+                                                        <lightning-accordion-section name={object.name} key={object.name} label={object.name}>
+                                                            <div class="c-container">
+                                                                <lightning-layout class="layout_design">
+                                                                    <lightning-layout-item padding="around-small">
+                                                                        <div class="header-column">
+                                                                            <p class="field-title" title="Object Name">Object Name</p>
+                                                                            <p class="bold">{object.name}</p>
+                                                                        </div>
+                                                                    </lightning-layout-item>
+                                                                    <lightning-layout-item padding="around-small">
+                                                                        <div class="header-column">
+                                                                            <p class="field-title" title="Read Access">Read Access</p>
+                                                                            <p class="bold">{object.read}</p>
+                                                                        </div>
+                                                                    </lightning-layout-item>
+                                                                    <lightning-layout-item padding="around-small">
+                                                                        <div class="header-column">
+                                                                            <p class="field-title" title="Edit Access">Edit Access</p>
+                                                                            <p class="bold">{object.edit}</p>
+                                                                        </div>
+                                                                    </lightning-layout-item>
+                                                                    <lightning-layout-item padding="around-small">
+                                                                        <div class="header-column">
+                                                                            <p class="field-title" title="Create Access">Create Access</p>
+                                                                            <p class="bold">{object.create}</p>
+                                                                        </div>
+                                                                    </lightning-layout-item>
+                                                                </lightning-layout>
+                                                                <template if:true={object.instructions}>
+                                                                    <lightning-accordion allow-multiple-sections-open>
+                                                                        <!--Instructions level-->
+                                                
+                                                                        <template for:each={object.instructions} for:item="instruct">
+                                                                            <lightning-accordion-section name={instruct.name} key={instruct.name} label={instruct.name}>
+                                                                                <template for:each={instruct.steps} for:item="step">
+                                                                                    <div key={step}>{step}</div>
+                                                                                </template>
+                                                                            </lightning-accordion-section>
+                                                                        </template>
+                                                
+                                                                    </lightning-accordion>
+                                                                </template>
+                                                
+                                                            </div>
+                                                
+                                                
+                                                
+                                                        </lightning-accordion-section>
+                                                
+                                                    </template>
+                                                
+                                                </lightning-accordion>
+                                            </template>
+                                            
+                                
+                                        </lightning-accordion-section>
+                                    </template>
+                                
+                                
+                                </lightning-accordion>
+
+                            </template>
+                                
+                        </lightning-accordion-section>
+                    </template>
+
+                </lightning-accordion>
+                
+                
+            </div>
+        </lightning-card>
+    </div>
+
+
+
+</template>
