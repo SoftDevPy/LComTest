@@ -1,7 +1,7 @@
 <template>
 
     <div class="margin-bottom-2rem">
-        <lightning-card title="All Categories list" icon-name="custom:custom14">
+        <lightning-card title="List of features for regression testing" icon-name="custom:custom14">
             <div class="slds-var-m-around_medium">
                 <lightning-accordion allow-multiple-sections-open>
                     <!--Category level-->
@@ -14,6 +14,7 @@
                                         <lightning-accordion-section name={profile.section} key={profile.name} label={profile.name}>
                                             <template if:true={profile.objects}>
                                                 <lightning-accordion allow-multiple-sections-open>
+                                                   
                                                     <!--Profile level-->
                                                     <template for:each={profile.objects} for:item="object">
                                                 
