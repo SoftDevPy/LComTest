@@ -1,3 +1,46 @@
 <template>
+    <lightning-card  title="Curent record and object info">
+        <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+        <div class="slds-m-around_medium">
+            <p>Record ID <strong>{recordId}</strong></p>
+            <p> Object Api Name <strong>{objectApiName}</strong></p>
+            <p>Logged in user ID  <strong> {userId }</strong></p>
+        </div>
+      
+    </lightning-card>
+    <lightning-card  title="Wire as a property calling Apex, not as an adapter">
+        <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+        
+                <template if:true={contactList.data}>
+                    <template for:each={contactList.data} for:item="item">
+                        <div key={item.Id}>
+                            <div>{item.Id}</div>
+                            <div>{item.Name}</div>
+                        </div>        
+                    </template>
+                </template>  
+                <template if:true={contactList.error}>
+                    <div>{contactList.error}</div>
+                </template>         
+    </lightning-card>
+
+    <lightning-card  title="Wire as a function calling Apex, not as an adapter">
+        <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+        
+                <template if:true={contactListDetails.data}>
+                    <template for:each={contactListDetails.data} for:item="item">
+                        <div key={item.Id}>
+                            <div>{item.Id}</div>
+                            <div>{item.Name}</div>
+                        </div>        
+                    </template>
+                </template>  
+                <template if:true={contactListDetails.error}>
+                    <div>{contactListDetails.error}</div>
+                </template>
+                
+    </lightning-card>   
+
+
     
 </template>
